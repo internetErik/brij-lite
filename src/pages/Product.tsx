@@ -16,6 +16,9 @@ const Product = () => {
       }
 
       const response = await fetch(`http://localhost:8080/https://fir-hosting-app-clip.web.app/.well-known/api/${productId}.json`);
+      // getting error:
+      // "No 'Access-Control-Allow-Origin' header is present on the requested resource." etc.
+      // const response = await fetch(`https://fir-hosting-app-clip.web.app/.well-known/api/${productId}.json`, { method : 'GET', mode : 'cors'});
       const data = await response.json();
       setProduct(data);
       setLoading(false);
@@ -38,7 +41,7 @@ const Product = () => {
     </header>
     <main className="site-body">
       <Grid className="df">
-        <div className="w50%">
+        <div className="w70%">
         {product.tag.product.variant &&
         <div className="fz14">{ product.tag.product.variant }</div>
         }
@@ -48,10 +51,10 @@ const Product = () => {
         {product.tag.product.details &&
         <>
         <h3 className="fsi">Details</h3>
-        <ul>
+        <ul className="fz16">
         { Object.keys(product.tag.product.details).map((key, i) =>(
           <li key={i}>
-          <span className="dib w200">{ key } :</span> { product.tag.product.details[key] }
+          <span className="dib w100">{ key } :</span> { product.tag.product.details[key] }
           </li>
           ))
         }
@@ -59,7 +62,7 @@ const Product = () => {
         </>
         }
         </div>
-        <div className="w50%">
+        <div className="w30%">
           <img className="w100%" src={product.tag.product.image} alt={product.tag.product.name} />
         </div>
       </Grid>
