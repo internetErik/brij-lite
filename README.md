@@ -18,4 +18,10 @@ I got around this by using a local proxy server to send requests through. The pr
 
 Now when you `fetch` on a url, put `http://localhost:8080/` in front of your request. (e.g., `https://fir-hosting-app-clip.web.app/.well-known/api/2.json` becomes `http://localhost:8080/https://fir-hosting-app-clip.web.app/.well-known/api/2.json`)
 
-# Typescript setup but not currently actual use
+# Typescript setup but not really being used
+
+# SASS
+
+This project uses `atomic-scss`
+
+However, I started from a configuration I already had around, and which needs to be cleaned up quite a bit.
